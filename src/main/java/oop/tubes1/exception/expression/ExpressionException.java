@@ -1,4 +1,4 @@
-package oop.tubes1.exception;
+package oop.tubes1.exception.expression;
 
 /**
  * ExpressionException

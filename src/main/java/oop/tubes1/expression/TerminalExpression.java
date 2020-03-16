@@ -5,9 +5,15 @@ package oop.tubes1.expression;
  */
 public class TerminalExpression<T> implements Expression<T> {
 
+    private T value;
+
+    public TerminalExpression(T value) {
+        this.value = value;
+    }
+
     @Override
     public T solve() {
-        return null;
+        return this.value;
     }
 
 }

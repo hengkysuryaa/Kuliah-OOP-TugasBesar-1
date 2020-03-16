@@ -3,11 +3,14 @@ package oop.tubes1.expression;
 /**
  * UnaryExpression
  */
-public class UnaryExpression<T> implements Expression<T> {
+public abstract class UnaryExpression<T> implements Expression<T> {
 
-    @Override
-    public T solve() {
-        return null;
+    protected Expression<T> expression;
+
+    public UnaryExpression(Expression<T> expression) {
+        this.expression = expression;
     }
+
+    public abstract T solve();
 
 }

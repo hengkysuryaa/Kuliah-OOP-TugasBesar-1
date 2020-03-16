@@ -1,5 +1,6 @@
 package oop.tubes1.utils;
 
+import oop.tubes1.exception.input.InputException;
 import oop.tubes1.expression.Expression;
 
 /**
@@ -11,7 +12,7 @@ public class ExpressionConverter<T extends Expression<?>> {
 
     }
 
-    public T getExpression() {
+    public T getExpression() throws InputException {
         return null;
     }
 

@@ -3,11 +3,15 @@ package oop.tubes1.expression;
 /**
  * PowerExpression
  */
-public class PowerExpression<T> extends BinaryExpression<T> {
+public class PowerExpression extends BinaryExpression<Double> {
+
+    public PowerExpression(Expression<Double> expression1, Expression<Double> expression2) {
+        super(expression1, expression2);
+    }
 
     @Override
-    public T solve() {
-        return null;
+    public Double solve() {
+        return Math.pow(expression1.solve(), expression2.solve());
     }
 
 }

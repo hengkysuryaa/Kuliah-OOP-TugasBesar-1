@@ -3,11 +3,15 @@ package oop.tubes1.expression;
 /**
  * PercentExpression
  */
-public class PercentExpression<T> extends UnaryExpression<T> {
+public class PercentExpression extends UnaryExpression<Double> {
+
+    public PercentExpression(Expression<Double> expression) {
+        super(expression);
+    }
 
     @Override
-    public T solve() {
-        return null;
+    public Double solve() {
+        return expression.solve() / 100d;
     }
 
 }
