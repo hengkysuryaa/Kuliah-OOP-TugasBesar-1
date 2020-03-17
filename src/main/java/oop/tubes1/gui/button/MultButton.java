@@ -1,6 +1,8 @@
 package oop.tubes1.gui.button;
 
-
+/**
+ * MultButton
+ */
 public class MultButton extends OperatorButton {
 
     public MultButton() {

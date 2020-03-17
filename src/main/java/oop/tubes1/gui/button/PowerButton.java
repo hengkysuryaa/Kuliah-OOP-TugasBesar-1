@@ -1,6 +1,8 @@
 package oop.tubes1.gui.button;
 
-
+/**
+ * PowerButton
+ */
 public class PowerButton extends OperatorButton {
 
     public PowerButton() {

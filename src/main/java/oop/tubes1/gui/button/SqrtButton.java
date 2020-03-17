@@ -1,6 +1,8 @@
 package oop.tubes1.gui.button;
 
-
+/**
+ * SqrtButton
+ */
 public class SqrtButton extends OperatorButton {
 
     public SqrtButton() {

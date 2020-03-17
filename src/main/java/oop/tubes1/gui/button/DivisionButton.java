@@ -1,6 +1,8 @@
 package oop.tubes1.gui.button;
 
-
+/**
+ * DivisionButton
+ */
 public class DivisionButton extends OperatorButton {
 
     public DivisionButton() {
