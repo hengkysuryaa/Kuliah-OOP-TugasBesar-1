@@ -1,21 +1,17 @@
 package oop.tubes1.gui.button;
 
-/**
- * OperatorButton
- */
-public class OperatorButton extends CalculatorButton {
 
-    public OperatorButton() {
+public class DivisionButton extends OperatorButton {
+
+    public DivisionButton() {
 
         super();
     }
 
-    @Override
     public void onClick(Runnable run) {
 
     }
 
-    @Override
     public void doClick() {
 
     }
