@@ -5,4 +5,8 @@ package oop.tubes1.gui.button;
  */
 public class HistoryButton extends CalculatorButton {
 
+    public HistoryButton() {
+
+        super();
+    }
 }
