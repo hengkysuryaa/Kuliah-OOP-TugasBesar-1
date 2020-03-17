@@ -5,8 +5,6 @@ package oop.tubes1.gui.button;
  */
 public interface Clickable {
 
-    public void onClick(Runnable run);
-
-    public void doClick();
+    public void onClick();
 
 }
