@@ -1,7 +1,7 @@
 package oop.tubes1.gui.button;
 
 /**
- * MCButton
+ * MSButton
  */
 public class MSButton extends HistoryButton {
 

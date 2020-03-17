@@ -3,9 +3,9 @@ package oop.tubes1.gui.button;
 /**
  * OperandButton
  */
-public class OperandButton extends CalculatorButton {
+public class Number extends OperandButton {
 
-    public OperandButton(){
+    public Number() {
         super();
     }
 }
