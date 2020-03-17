@@ -2,25 +2,18 @@ package oop.tubes1.gui.button;
 
 import javax.swing.JButton;
 
+import oop.tubes1.gui.CalculatorApp;
+
 /**
  * CalculatorButton
  */
-public class CalculatorButton implements Clickable {
+public abstract class CalculatorButton extends JButton implements Clickable {
 
-    protected JButton button;
+    private static final long serialVersionUID = -8050319071408324303L;
 
-    public CalculatorButton() {
-
-    }
-
-    @Override
-    public void onClick(Runnable run) {
-
-    }
-
-    @Override
-    public void doClick() {
-
+    public CalculatorButton(CalculatorApp app, String label) {
+        super(label);
+        this.addActionListener(e -> onClick());
     }
 
 }
