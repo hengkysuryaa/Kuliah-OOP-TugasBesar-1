@@ -1,15 +1,23 @@
 package oop.tubes1.gui;
+
 import java.awt.Color;
-import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.*;  
 import javax.swing.*;
-import javax.swing.border.Border;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.text.AbstractDocument.BranchElement;   
+
 
 /**
  * App
  */
+
 public class CalculatorApp {
     public void show() {
     }
+
+    //public void getButtonName()
+    //public void buttonEvent()
 
     public static void main(String args[]) {
         final int FRAME_WIDTH=535;
@@ -23,27 +31,23 @@ public class CalculatorApp {
         final int OFFSET_Y_BUTTON = 150 + V_SPACE; 
 
         JFrame frame=new JFrame();//creating instance of JFrame
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JLabel brand = new JLabel("Call-u-later");
+        brand.setBounds((FRAME_WIDTH/2)-(130/2) ,15,130,30);
+        brand.setFont(new FontUIResource("Arial",  Font.BOLD + Font.ITALIC , 24));
+        brand.setForeground(Color.WHITE);
 
         JTextField outputArea = new JTextField(20);
         outputArea.setBounds(TOPX,TOPY,460,100);
-        
-        // Object[] queueHistory= {50,75};
-        // JList history = new JList(queueHistory);
-        // history.setRenderer(new FontCellRenderer());
-        // history.setBounds(TOPX,OFFSET_Y_BUTTON,WIDTH, FRAME_HEIGHT-OFFSET_Y_BUTTON-80);
-        
-        // DefaultListCellRenderer renderer = (DefaultListCellRenderer) history.getCellRenderer();
-        // renderer.setHorizontalAlignment(SwingConstants.CENTER);
-        // JSeparator s = new JSeparator(); 
-        // s.setOrientation(SwingConstants.VERTICAL);
-        // frame.add(s);
 
-        // JLabel label = new JLabel("Test");
-        // label.setForeground(Color.blue);
-        // label.setBackground(Color.lightGray);
-        // label.setBounds(TOPX,OFFSET_Y_BUTTON,WIDTH,HEIGHT);
-        // frame.add(label);
-
+        Integer[] data = {20, 70, 60, 40};
+        JList<Integer> history = new JList<Integer>(data);
+        history.setBounds(TOPX,OFFSET_Y_BUTTON,WIDTH, FRAME_HEIGHT-OFFSET_Y_BUTTON-80);
+        history.setFont(new FontUIResource("Arial", Font.BOLD, 24));
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) history.getCellRenderer();
+        renderer.setHorizontalAlignment(SwingConstants.CENTER);
+       
         JButton delete=new JButton("Del");
         delete.setBounds(TOPX+WIDTH+H_SPACE,OFFSET_Y_BUTTON,WIDTH,HEIGHT);
 
@@ -82,6 +86,9 @@ public class CalculatorApp {
 
         JButton button1 = new JButton("1");
         button1.setBounds(TOPX+WIDTH+H_SPACE,OFFSET_Y_BUTTON+3*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
+        button1.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e){
+            outputArea.setText("1");
+        }});
 
         JButton button2 = new JButton("2");
         button2.setBounds(TOPX+2*(WIDTH+H_SPACE),OFFSET_Y_BUTTON+3*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
@@ -118,7 +125,6 @@ public class CalculatorApp {
         JButton equation = new JButton("=");
         equation.setBounds(TOPX+4*(WIDTH+H_SPACE),OFFSET_Y_BUTTON+5*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
         
-        
         frame.add(outputArea);
         frame.add(delete);
         frame.add(percent);
@@ -145,11 +151,12 @@ public class CalculatorApp {
         frame.add(memoryStore);
         frame.add(ans);
         frame.add(equation);
+        frame.add(history);
+        frame.add(brand);
         frame.setSize(FRAME_WIDTH,FRAME_HEIGHT);
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
         frame.getContentPane().setBackground(new java.awt.Color(64, 64, 64));
-
     }
 }
