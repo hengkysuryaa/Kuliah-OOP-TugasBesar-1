@@ -18,7 +18,7 @@ public class OperatorButton extends CalculatorButton {
 
     @Override
     public void onClick() {
-        // TODO: Implement!
+        app.textArea.setText(app.textArea.getText() + label);
 
     }
 

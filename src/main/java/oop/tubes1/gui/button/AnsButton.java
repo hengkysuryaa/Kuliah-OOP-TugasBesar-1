@@ -2,6 +2,10 @@ package oop.tubes1.gui.button;
 
 import oop.tubes1.gui.CalculatorApp;
 
+import oop.tubes1.utils.ExpressionConverter;
+
+import oop.tubes1.expression.Expression;
+
 /**
  * EraseButton
  */
@@ -15,7 +19,14 @@ public class AnsButton extends CalculatorButton {
 
     @Override
     public void onClick() {
-        // TODO: Implement!
+        String eks = app.textArea.getText();
+        ExpressionConverter<Expression<Double>> converter = new ExpressionConverter<>(eks);
+        try {
+            String result = Double.toString(converter.getExpression().solve());
+            app.textArea.setText(result);
+        } catch (Exception e) {
+            app.textArea.setText("Invalid");
+        }
 
     }
 

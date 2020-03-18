@@ -13,6 +13,9 @@ import javax.swing.text.AbstractDocument.BranchElement;
  */
 
 public class CalculatorApp {
+
+    public JTextField textArea;
+
     public void show() {
     }
 
@@ -38,8 +41,10 @@ public class CalculatorApp {
         brand.setFont(new FontUIResource("Arial",  Font.BOLD + Font.ITALIC , 24));
         brand.setForeground(Color.WHITE);
 
-        JTextField outputArea = new JTextField(20);
-        outputArea.setBounds(TOPX,TOPY,460,100);
+        JTextField textArea = new JTextField(20);
+        textArea.setBounds(TOPX,TOPY,460,100);
+        
+        
 
         Integer[] data = {20, 70, 60, 40};
         JList<Integer> history = new JList<Integer>(data);
@@ -84,10 +89,10 @@ public class CalculatorApp {
         JButton multiplication = new JButton("X");
         multiplication.setBounds(TOPX+4*(WIDTH+H_SPACE),OFFSET_Y_BUTTON+2*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
 
-        JButton button1 = new JButton("1");
+        Number1 button1 = new Number1(this);
         button1.setBounds(TOPX+WIDTH+H_SPACE,OFFSET_Y_BUTTON+3*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
         button1.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent e){
-            outputArea.setText("1");
+            textArea.setText("1");
         }});
 
         JButton button2 = new JButton("2");
@@ -125,7 +130,7 @@ public class CalculatorApp {
         JButton equation = new JButton("=");
         equation.setBounds(TOPX+4*(WIDTH+H_SPACE),OFFSET_Y_BUTTON+5*(HEIGHT+V_SPACE),WIDTH,HEIGHT);
         
-        frame.add(outputArea);
+        frame.add(textArea);
         frame.add(delete);
         frame.add(percent);
         frame.add(power);

@@ -11,9 +11,12 @@ public abstract class CalculatorButton extends JButton implements Clickable {
 
     private static final long serialVersionUID = -8050319071408324303L;
 
+    protected CalculatorApp app;
+
     public CalculatorButton(CalculatorApp app, String label) {
         super(label);
         this.addActionListener(e -> onClick());
+        this.app = app;
     }
 
 }
