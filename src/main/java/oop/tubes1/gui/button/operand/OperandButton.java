@@ -18,7 +18,7 @@ public abstract class OperandButton extends CalculatorButton {
 
     @Override
     public void onClick() {
-        app.textArea.setText(app.textArea.getText() + label);
+        app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText() + label);
     }
 
 }

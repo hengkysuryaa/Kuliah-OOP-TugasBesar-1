@@ -6,14 +6,14 @@ import oop.tubes1.expression.Expression;
 /**
  * ExpressionConverter
  */
-public class ExpressionConverter<T extends Expression<?>> {
+public abstract class ExpressionConverter<T extends Expression<?>> {
+
+    protected String input;
 
     public ExpressionConverter(String input) {
-
+        this.input = input;
     }
 
-    public T getExpression() throws InputException {
-        return null;
-    }
+    public abstract T getExpression() throws InputException;
 
 }
