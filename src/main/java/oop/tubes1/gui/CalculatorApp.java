@@ -83,6 +83,10 @@ public class CalculatorApp extends JFrame {
         this.ansValue = val;
     }
 
+    public CalculatorButton getEquationButton() {
+        return this.equation;
+    }
+
     public JTextField getCalculatorDisplay() {
         return textArea;
     }
