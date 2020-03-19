@@ -9,7 +9,7 @@ public class MemoryQueue<T> {
     }
 
     public T recall() {
-        return null;
+        return null; 
     }
 
     public void clear() {

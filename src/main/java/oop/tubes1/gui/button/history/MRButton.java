@@ -15,8 +15,17 @@ public class MRButton extends HistoryButton {
 
     @Override
     public void onClick() {
-        // TODO: Implement!
-
+        Double recallVal = app.getMemQueue().recall();
+        String recallString;
+        if (recallVal != null)
+        {
+            recallString = Double.toString(recallVal); 
+        }
+        else
+        {
+            recallString = "";
+        }
+        app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText()+recallString);
     }
 
 }

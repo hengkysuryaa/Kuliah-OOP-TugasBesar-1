@@ -21,6 +21,7 @@ public class EqualsButton extends CalculatorButton {
         try {
             String result = Double.toString(converter.getExpression().solve());
             app.getCalculatorDisplay().setText(result);
+            app.setAnsValue(Double.parseDouble(result));
         } catch (Exception e) {
             app.getCalculatorDisplay().setText("Invalid");
         }

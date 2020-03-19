@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.FontUIResource;
 
+import oop.tubes1.datastructure.MemoryQueue;
 import oop.tubes1.gui.button.AnsButton;
 import oop.tubes1.gui.button.CalculatorButton;
 import oop.tubes1.gui.button.EqualsButton;
@@ -63,9 +64,23 @@ public class CalculatorApp extends JFrame {
     private HistoryButton memoryRecall, memoryClear, memoryStore;
     private OperandButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
             decimal;
+    public Double ansValue;
+    public MemoryQueue<Double> data;
 
     public CalculatorApp() {
         init();
+    }
+
+    public MemoryQueue<Double> getMemQueue() {
+        return data;
+    }
+
+    public Double getAnsValue() {
+        return ansValue;
+    }
+
+    public void setAnsValue(double val) {
+        this.ansValue = val;
     }
 
     public JTextField getCalculatorDisplay() {
@@ -73,6 +88,7 @@ public class CalculatorApp extends JFrame {
     }
 
     public void init() {
+        ansValue = 0.0;
         JLabel brand = new JLabel("Call-u-later");
         brand.setBounds((FRAME_WIDTH / 2) - (130 / 2), 15, 130, 30);
         brand.setFont(new FontUIResource("Arial", Font.BOLD + Font.ITALIC, 24));

@@ -15,7 +15,8 @@ public class MSButton extends HistoryButton {
 
     @Override
     public void onClick() {
-        // TODO: Implement!
+        //equals dlu biar dapet ans
+        //app.getMemQueue().store(Double.parseDouble(ans));
 
     }
 

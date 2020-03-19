@@ -15,7 +15,8 @@ public class AnsButton extends CalculatorButton {
 
     @Override
     public void onClick() {
-
+        String ans = Double.toString(app.getAnsValue());
+        app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText() + ans);
     }
 
 }
