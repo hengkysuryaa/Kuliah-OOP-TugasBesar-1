@@ -13,13 +13,18 @@ import oop.tubes1.expression.BinaryExpression;
 import oop.tubes1.expression.PercentExpression;
 import oop.tubes1.expression.SqrtExpression;
 import oop.tubes1.expression.PowerExpression;
+import oop.tubes1.expression.NegativeExpression;
+import oop.tubes1.expression.SubstractExpression;
+import oop.tubes1.expression.DivisionExpression;
+import oop.tubes1.expression.AdditionExpression;
+import oop.tubes1.expression.MultiplicationExpression;
 
 /**
  * MathEvaluator
  */
 public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 	private static final Set<Character> number = Set.of('1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
-	private static final Set<Character> op = Set.of('*', '/', '-', '+', '^', '√', '%');
+	private static final Set<Character> op = Set.of('X', '/', '-', '+', '^', '√', '%');
 	public MathEvaluator(String input) {
 		super(input);
 	}
@@ -27,18 +32,28 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 	@Override
 	public Expression<Double> getExpression() throws InputException {
 		if (this.checkValidExpression()) {
-			ArrayList<String> inputS = new ArrayList<String>(this.input.length());
+			ArrayList<String> inputS = new ArrayList<String>();
 			String temp = "";
 			for (int i = 0; i < this.input.length(); i++) {
 				char c = this.input.charAt(i);
-				if (number.contains(c) || c == '.') {
-					temp += Character.toString(c);
-				} else {
+				if(i==this.input.length()-1){
+					temp+=Character.toString(c);
 					inputS.add(temp);
-					temp = "";
-					inputS.add(Character.toString(c));
 				}
-
+				else{
+					if (number.contains(c) || c == '.') {
+						temp += Character.toString(c);
+					} 
+					else{
+						if(!temp.equals(""))
+						{
+							inputS.add(temp);
+						}
+						temp = "";
+						inputS.add(Character.toString(c));
+					}
+					
+				}
 			}
 			// Beresin Unary
 			ArrayList<Integer> akar = new ArrayList<Integer>();
@@ -48,15 +63,17 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 				String c = inputS.get(i);
 				if(i!=0){
 					if(c.length()==1){
-						if (c.equals("-") && inputS.get(i-1).length()==1 && op.contains(inputS.get(i-1).charAt(0)) && inputS.get(i-1).charAt(0)!='%') {
-							minus.add(i);
+						if (c.equals("-") && inputS.get(i-1).length()==1){
+							if(op.contains(inputS.get(i-1).charAt(0)) && inputS.get(i-1).charAt(0)!='%') {
+								minus.add(i);
+							}
 						}
 					}
 				}
-				else{
+				else if(i==0){
 					if(c.length()==1){
-						if(c.equals('-')){
-						minus.add(i);
+						if(c.equals("-")){
+							minus.add(i);
 						}
 					}
 				}
@@ -133,14 +150,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 				String c = inputS.get(i);
 				if(c.length()==1){
 					if(c.equals("^")){
-						pangkat.add(i);
+						pgkt.add(i);
 					}
 				}
 			}
 			count = 0;
-			if(!pangkat.isEmpty()){
-				for(int i=0;i<pangkat.size();i++){
-					int pos = pangkat.get(i);
+			if(!pgkt.isEmpty()){
+				for(int i=0;i<pgkt.size();i++){
+					int pos = pgkt.get(i);
 					operan1=inputS.get(pos-count-1);
 					operan2=inputS.get(pos-count+1);
 					inputS.remove(pos-count+1);
@@ -168,7 +185,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 			for(int i=0;i<inputS.size();i++){
 				String c = inputS.get(i);
 				if(c.length()==1){
-					if(c.equals("*")){
+					if(c.equals("X")){
 						kali.add(i);
 					}
 				}
@@ -189,7 +206,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else if(operan1.charAt(0)=='-'){
 						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new MultiplicationExpressionExpression(x,y);
+						res = new MultiplicationExpression(x,y);
 					}
 					else{
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
@@ -225,7 +242,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else if(operan1.charAt(0)=='-'){
 						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new DivisionExpressionExpression(x,y);
+						res = new DivisionExpression(x,y);
 					}
 					else{
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
@@ -261,7 +278,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else if(operan1.charAt(0)=='-'){
 						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new AdditionExpressionExpression(x,y);
+						res = new AdditionExpression(x,y);
 					}
 					else{
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
@@ -297,7 +314,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else if(operan1.charAt(0)=='-'){
 						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new SubstractExpressionExpression(x,y);
+						res = new SubstractExpression(x,y);
 					}
 					else{
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
@@ -308,8 +325,12 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					count +=2;
 				}
 			}
-
-			return new TerminalExpression<Double>(5.0);
+			if(inputS.get(0).charAt(0)=='-'){
+				return new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(inputS.get(0).substring(1))));
+			}
+			else{
+				return new TerminalExpression<Double>(Double.parseDouble(inputS.get(0)));
+			}
 		}
 		return new TerminalExpression<Double>(0.0);
 		// Unreachable code
@@ -318,7 +339,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	private boolean checkValidExpression() throws InputException {
 		Set<Character> opFront = Set.of('-', '√');
-		Set<String> op2 = Set.of("--", "*-", "√-", "-√", "√√", "%%","%+","%-","%*","%/");
+		Set<String> op2 = Set.of("--", "X-", "√-", "-√", "√√", "%%","%+","%-","%*","%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
