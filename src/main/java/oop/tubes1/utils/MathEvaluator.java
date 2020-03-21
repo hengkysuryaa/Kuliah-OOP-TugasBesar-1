@@ -172,9 +172,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new PowerExpression(x,y);
 					}
-					else{
+					else if(operan2.charAt(0)=='-'){
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
 						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+						res = new PowerExpression(x,y);
+					}
+					else{
+						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new PowerExpression(x,y);
 					}
 					inputS.set(pos-count-1,""+res.solve());
@@ -208,9 +213,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new MultiplicationExpression(x,y);
 					}
-					else{
+					else if(operan2.charAt(0)=='-'){
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
 						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+						res = new MultiplicationExpression(x,y);
+					}
+					else{
+						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new MultiplicationExpression(x,y);
 					}
 					inputS.set(pos-count-1,""+res.solve());
@@ -244,9 +254,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new DivisionExpression(x,y);
 					}
-					else{
+					else if(operan2.charAt(0)=='-'){
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
 						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+						res = new DivisionExpression(x,y);
+					}
+					else{
+						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new DivisionExpression(x,y);
 					}
 					inputS.set(pos-count-1,""+res.solve());
@@ -280,9 +295,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new AdditionExpression(x,y);
 					}
-					else{
+					else if(operan2.charAt(0)=='-'){
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
 						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+						res = new AdditionExpression(x,y);
+					}
+					else{
+						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new AdditionExpression(x,y);
 					}
 					inputS.set(pos-count-1,""+res.solve());
@@ -316,9 +336,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new SubstractExpression(x,y);
 					}
-					else{
+					else if(operan2.charAt(0)=='-'){
 						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
 						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+						res = new SubstractExpression(x,y);
+					}
+					else{
+						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
 						res = new SubstractExpression(x,y);
 					}
 					inputS.set(pos-count-1,""+res.solve());
