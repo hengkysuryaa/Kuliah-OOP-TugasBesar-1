@@ -346,7 +346,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	private boolean checkValidExpression() throws InputException {
 		Set<Character> opFront = Set.of('-', '√');
-		Set<String> op2 = Set.of("--", "X-", "√-", "-√", "√√", "%%","%+","%-","%*","%/");
+		Set<String> op2 = Set.of("--", "/-","X-", "√-", "-√", "√√", "%%","%+","%-","%*","%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
