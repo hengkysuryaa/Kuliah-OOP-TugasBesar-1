@@ -44,7 +44,6 @@ import oop.tubes1.gui.button.operator.SubstractButton;
 /**
  * App
  */
-
 public class CalculatorApp extends JFrame {
 
     private static final long serialVersionUID = 3051646471902776406L;

@@ -18,7 +18,6 @@ public class MCButton extends HistoryButton {
         app.getMemQueue().clear();
         app.setAnsValue(0.0);
         app.getCalculatorDisplay().setText("");
-
     }
 
 }

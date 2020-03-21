@@ -18,7 +18,6 @@ public class MSButton extends HistoryButton {
         app.getEquationButton().onClick();
         String result = app.getCalculatorDisplay().getText();
         app.getMemQueue().store(Double.parseDouble(result));
-
     }
 
 }

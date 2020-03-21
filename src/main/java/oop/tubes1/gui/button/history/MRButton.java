@@ -17,15 +17,12 @@ public class MRButton extends HistoryButton {
     public void onClick() {
         Double recallVal = app.getMemQueue().recall();
         String recallString;
-        if (recallVal != null)
-        {
-            recallString = Double.toString(recallVal); 
-        }
-        else
-        {
+        if (recallVal != null) {
+            recallString = Double.toString(recallVal);
+        } else {
             recallString = "";
         }
-        app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText()+recallString);
+        app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText() + recallString);
     }
 
 }

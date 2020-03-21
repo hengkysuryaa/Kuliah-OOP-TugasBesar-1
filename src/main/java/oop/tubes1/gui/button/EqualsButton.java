@@ -1,5 +1,7 @@
 package oop.tubes1.gui.button;
 
+import oop.tubes1.exception.expression.ExpressionException;
+import oop.tubes1.exception.input.InputException;
 import oop.tubes1.gui.CalculatorApp;
 import oop.tubes1.utils.MathEvaluator;
 
@@ -22,8 +24,12 @@ public class EqualsButton extends CalculatorButton {
             String result = Double.toString(converter.getExpression().solve());
             app.getCalculatorDisplay().setText(result);
             app.setAnsValue(Double.parseDouble(result));
+        } catch (InputException e) {
+            app.getCalculatorDisplay().setText(e.getMessage());
+        } catch (ExpressionException e) {
+            app.getCalculatorDisplay().setText(e.getMessage());
         } catch (Exception e) {
-            app.getCalculatorDisplay().setText("Invalid");
+            app.getCalculatorDisplay().setText("Invalid input!");
         }
 
     }
