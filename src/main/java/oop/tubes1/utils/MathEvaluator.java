@@ -98,9 +98,14 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 				}
 			}
+			System.out.println(akar);
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
 			if(!akar.isEmpty()){
 				//Beresin akar
-				for(int i=akar.size()-1;i<=0;i--){
+				for(int i=akar.size()-1;i>=0;i--){
 					int pos = akar.get(i);
 					temp = inputS.get(pos+1);
 					inputS.remove(pos+1);
