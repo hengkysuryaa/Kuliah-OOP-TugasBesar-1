@@ -134,8 +134,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 			//Binary Operator
 			ArrayList<Integer> pgkt = new ArrayList<Integer>();
-			ArrayList<Integer> kali = new ArrayList<Integer>();
-			ArrayList<Integer> bagi = new ArrayList<Integer>();
+			ArrayList<Integer> kaliBagi = new ArrayList<Integer>();
 			ArrayList<Integer> tambah = new ArrayList<Integer>();
 			ArrayList<Integer> kurang = new ArrayList<Integer>();
 			Expression x;
@@ -186,83 +185,66 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					count +=2;
 				}
 			}
-			//Beresin Kali
+			//Beresin Kali dan Bagi
 			for(int i=0;i<inputS.size();i++){
 				String c = inputS.get(i);
 				if(c.length()==1){
-					if(c.equals("X")){
-						kali.add(i);
+					if(c.equals("X") || c.equals("/")){
+						kaliBagi.add(i);
 					}
 				}
 			}
 			count = 0;
-			if(!kali.isEmpty()){
-				for(int i=0;i<kali.size();i++){
-					int pos = kali.get(i);
+			if(!kaliBagi.isEmpty()){
+				for(int i=0;i<kaliBagi.size();i++){
+					int pos = kaliBagi.get(i);
 					operan1=inputS.get(pos-count-1);
 					operan2=inputS.get(pos-count+1);
 					inputS.remove(pos-count+1);
 					inputS.remove(pos-count-1);
-					if(operan1.charAt(0)=='-' && operan2.charAt(0)=='-'){
-						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
-						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
-						res = new MultiplicationExpression(x,y);
-					}
-					else if(operan1.charAt(0)=='-'){
-						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
-						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new MultiplicationExpression(x,y);
-					}
-					else if(operan2.charAt(0)=='-'){
-						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
-						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
-						res = new MultiplicationExpression(x,y);
-					}
-					else{
-						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
-						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new MultiplicationExpression(x,y);
-					}
-					inputS.set(pos-count-1,""+res.solve());
-					count +=2;
-				}
-			}
-			//Beresin Bagi
-			for(int i=0;i<inputS.size();i++){
-				String c = inputS.get(i);
-				if(c.length()==1){
-					if(c.equals("/")){
-						bagi.add(i);
-					}
-				}
-			}
-			count = 0;
-			if(!bagi.isEmpty()){
-				for(int i=0;i<bagi.size();i++){
-					int pos = bagi.get(i);
-					operan1=inputS.get(pos-count-1);
-					operan2=inputS.get(pos-count+1);
-					inputS.remove(pos-count+1);
-					inputS.remove(pos-count-1);
-					if(operan1.charAt(0)=='-' && operan2.charAt(0)=='-'){
-						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
-						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
-						res = new DivisionExpression(x,y);
-					}
-					else if(operan1.charAt(0)=='-'){
-						x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
-						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new DivisionExpression(x,y);
-					}
-					else if(operan2.charAt(0)=='-'){
-						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
-						y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
-						res = new DivisionExpression(x,y);
+					if(inputS.get(pos-count-1).equals("X")){
+						if(operan1.charAt(0)=='-' && operan2.charAt(0)=='-'){
+							x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
+							y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+							res = new MultiplicationExpression(x,y);
+						}
+						else if(operan1.charAt(0)=='-'){
+							x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
+							y = new TerminalExpression<Double>(Double.parseDouble(operan2));
+							res = new MultiplicationExpression(x,y);
+						}
+						else if(operan2.charAt(0)=='-'){
+							x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+							y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+							res = new MultiplicationExpression(x,y);
+						}
+						else{
+							x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+							y = new TerminalExpression<Double>(Double.parseDouble(operan2));
+							res = new MultiplicationExpression(x,y);
+						}
 					}
 					else{
-						x = new TerminalExpression<Double>(Double.parseDouble(operan1));
-						y = new TerminalExpression<Double>(Double.parseDouble(operan2));
-						res = new DivisionExpression(x,y);
+						if(operan1.charAt(0)=='-' && operan2.charAt(0)=='-'){
+							x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
+							y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+							res = new DivisionExpression(x,y);
+						}
+						else if(operan1.charAt(0)=='-'){
+							x = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
+							y = new TerminalExpression<Double>(Double.parseDouble(operan2));
+							res = new DivisionExpression(x,y);
+						}
+						else if(operan2.charAt(0)=='-'){
+							x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+							y = new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(operan2.substring(1))));
+							res = new DivisionExpression(x,y);
+						}
+						else{
+							x = new TerminalExpression<Double>(Double.parseDouble(operan1));
+							y = new TerminalExpression<Double>(Double.parseDouble(operan2));
+							res = new DivisionExpression(x,y);
+						}
 					}
 					inputS.set(pos-count-1,""+res.solve());
 					count +=2;
