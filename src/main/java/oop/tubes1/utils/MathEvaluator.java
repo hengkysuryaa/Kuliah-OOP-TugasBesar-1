@@ -72,7 +72,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 				}
 				else if(i==0){
 					if(c.length()==1){
-						if(c.equals("-")){
+						if(c.equals("-") && inputS.get(i+1).charAt(0)!='√'){
 							minus.add(i);
 						}
 					}
@@ -98,11 +98,6 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 				}
 			}
-			System.out.println(akar);
-			System.out.println();
-			System.out.println();
-			System.out.println();
-			System.out.println();
 			if(!akar.isEmpty()){
 				//Beresin akar
 				for(int i=akar.size()-1;i>=0;i--){
@@ -114,8 +109,6 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 				}
 			}
-
-			
 			for(int i=0;i<inputS.size();i++){
 				String c = inputS.get(i);
 				if(c.length()==1){
@@ -297,7 +290,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 				}
 			}
 			//Beresin Kurang
-			for(int i=0;i<inputS.size();i++){
+			for(int i=1;i<inputS.size();i++){
 				String c = inputS.get(i);
 				if(c.length()==1){
 					if(c.equals("-")){
@@ -337,8 +330,13 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					count +=2;
 				}
 			}
-			if(inputS.get(0).charAt(0)=='-'){
+			System.out.println(inputS);
+			if(inputS.get(0).charAt(0)=='-' && inputS.size()==1){
 				return new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(inputS.get(0).substring(1))));
+			}
+			//BUAT HANDLE AKAR DOANG SOLUSI SEMENTARA
+			else if(inputS.get(0).charAt(0)=='-' && inputS.size()!=1){
+				return new NegativeExpression(new TerminalExpression<Double>(Double.parseDouble(inputS.get(1))));
 			}
 			else{
 				return new TerminalExpression<Double>(Double.parseDouble(inputS.get(0)));
