@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -11,7 +12,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.plaf.FontUIResource;
 
-import oop.tubes1.datastructure.MemoryQueue;
 import oop.tubes1.gui.button.AnsButton;
 import oop.tubes1.gui.button.CalculatorButton;
 import oop.tubes1.gui.button.EqualsButton;
@@ -40,6 +40,8 @@ import oop.tubes1.gui.button.operator.PercentButton;
 import oop.tubes1.gui.button.operator.PowerButton;
 import oop.tubes1.gui.button.operator.SqrtButton;
 import oop.tubes1.gui.button.operator.SubstractButton;
+import oop.tubes1.gui.textbox.CalculatorDisplay;
+import oop.tubes1.gui.textbox.MemoryDisplay;
 
 /**
  * App
@@ -57,21 +59,21 @@ public class CalculatorApp extends JFrame {
     private static final int TOPY = 50;
     private static final int OFFSET_Y_BUTTON = 150 + V_SPACE;
 
-    private JTextField textArea;
     private CalculatorButton delete, ans, equation;
     private OperatorButton percent, power, root, division, multiplication, substraction, addition;
     private HistoryButton memoryRecall, memoryClear, memoryStore;
     private OperandButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9,
             decimal;
-    public Double ansValue;
-    public MemoryQueue<Double> data;
+    private Double ansValue;
+    private MemoryDisplay<Double> history;
+    private CalculatorDisplay cdisplay;
 
     public CalculatorApp() {
         init();
     }
 
-    public MemoryQueue<Double> getMemQueue() {
-        return data;
+    public MemoryDisplay<Double> getHistoryQueue() {
+        return history;
     }
 
     public Double getAnsValue() {
@@ -86,8 +88,8 @@ public class CalculatorApp extends JFrame {
         return this.equation;
     }
 
-    public JTextField getCalculatorDisplay() {
-        return textArea;
+    public CalculatorDisplay getCalculatorDisplay() {
+        return cdisplay;
     }
 
     public void init() {
@@ -97,14 +99,16 @@ public class CalculatorApp extends JFrame {
         brand.setFont(new FontUIResource("Arial", Font.BOLD + Font.ITALIC, 24));
         brand.setForeground(Color.WHITE);
 
-        textArea = new JTextField(20);
-        textArea.setBounds(TOPX, TOPY, 460, 100);
+        JTextField display = new JTextField(20);
+        cdisplay = new CalculatorDisplay(display);
+        display.setBounds(TOPX, TOPY, 460, 100);
 
-        Integer[] data = { 20, 70, 60, 40 };
-        JList<Integer> history = new JList<Integer>(data);
-        history.setBounds(TOPX, OFFSET_Y_BUTTON, WIDTH, FRAME_HEIGHT - OFFSET_Y_BUTTON - 80);
-        history.setFont(new FontUIResource("Arial", Font.BOLD, 24));
-        DefaultListCellRenderer renderer = (DefaultListCellRenderer) history.getCellRenderer();
+        DefaultListModel<Double> historyListModel = new DefaultListModel<>();
+        JList<Double> historyList = new JList<>(historyListModel);
+        history = new MemoryDisplay<>(historyListModel);
+        historyList.setBounds(TOPX, OFFSET_Y_BUTTON, WIDTH, FRAME_HEIGHT - OFFSET_Y_BUTTON - 80);
+        historyList.setFont(new FontUIResource("Arial", Font.BOLD, 24));
+        DefaultListCellRenderer renderer = (DefaultListCellRenderer) historyList.getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
 
         delete = new EraseButton(this);
@@ -180,7 +184,7 @@ public class CalculatorApp extends JFrame {
         equation = new EqualsButton(this);
         equation.setBounds(TOPX + 4 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON + 5 * (HEIGHT + V_SPACE), WIDTH, HEIGHT);
 
-        add(textArea);
+        add(display);
         add(delete);
         add(percent);
         add(power);
@@ -206,7 +210,7 @@ public class CalculatorApp extends JFrame {
         add(memoryStore);
         add(ans);
         add(equation);
-        add(history);
+        add(historyList);
         add(brand);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setLocationRelativeTo(null);

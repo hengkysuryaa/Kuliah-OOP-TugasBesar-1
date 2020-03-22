@@ -1,28 +1,44 @@
 package oop.tubes1.gui.textbox;
 
-import javax.swing.JList;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
-import oop.tubes1.datastructure.MemoryQueue;
+import javax.swing.DefaultListModel;
 
 /**
  * MemoryDisplay
  */
 public class MemoryDisplay<T> {
 
-    public MemoryDisplay(JList<T> display, MemoryQueue<T> queue) {
+    private Queue<T> queue;
+    private DefaultListModel<T> display;
 
+    public MemoryDisplay(DefaultListModel<T> display) {
+        this.display = display;
+        this.queue = new ArrayDeque<>();
     }
 
     public void store(T value) {
-
+        queue.add(value);
+        refreshDisplay();
     }
 
     public T recall() {
-        return null;
+        T t = queue.poll();
+        refreshDisplay();
+        return t;
     }
 
     public void clear() {
+        display.clear();
+        queue.clear();
+    }
 
+    private void refreshDisplay() {
+        display.clear();
+        for (T t : queue) {
+            display.addElement(t);
+        }
     }
 
 }
