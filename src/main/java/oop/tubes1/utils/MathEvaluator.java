@@ -352,7 +352,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	private boolean checkValidExpression() throws InputException {
 		Set<Character> opFront = Set.of('.','-', '√');
-		Set<String> op2 = Set.of("x√","+-","--", "^-", "/-", "x-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
+		Set<String> op2 = Set.of("x√","+-","--", "^-", "/-", "x-","-√", "√√", "%%", "%+", "%-", "%*", "%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
@@ -365,7 +365,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 			char c = this.input.charAt(i);
 			if (i == 0) {
 				if (!opFront.contains(c) && !number.contains(c)) {
-					throw new OperatorInputException(Character.toString(c)+"....");
+					throw new OperatorInputException(Character.toString(c));
 				} else {
 					if (opFront.contains(c)) {
 						operatorFound += Character.toString(c);
@@ -383,10 +383,11 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else{
 						catat = true;
 						indexAngka = i;
-						if(this.input.charAt(i+1)=='√'){
-							throw new OperatorInputException(Character.toString(c)+"√");
+						if(i!=this.input.length()-1){
+							if(this.input.charAt(i+1)=='√'){
+								throw new OperatorInputException(Character.toString(c)+"√");
+							}
 						}
-						
 					}
 
 				}
@@ -404,15 +405,16 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						countMinus = 0;
 					}
 					operatorFound += Character.toString(c);
+					System.out.println(operatorFound);
 					if (operatorFound.length() == 2 && !op2.contains(operatorFound)) {
-						if(operatorFound == "√-"){
+						if(operatorFound.equals("√-")){
 							//Cari d dlu
 							temp = "";
 							for(int j=i+1;j<this.input.length();j++){
 								tempchar = this.input.charAt(j);
 								if(!op.contains(tempchar)){
 									temp+=Character.toString(tempchar);
-								}
+								} 
 								else{
 									break;
 								}
@@ -437,8 +439,10 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						catat = true;
 						indexAngka = i;
 					}
-					if(this.input.charAt(i+1)=='√'){
-						throw new OperatorInputException(Character.toString(c)+"√");
+					if(i!=this.input.length()-1){
+						if(this.input.charAt(i+1)=='√'){
+							throw new OperatorInputException(Character.toString(c)+"√");
+						}
 					}
 				}
 			}
