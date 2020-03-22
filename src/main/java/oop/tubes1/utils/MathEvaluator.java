@@ -31,20 +31,22 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	@Override
 	public Expression<Double> getExpression() throws InputException {
+		if (this.input.isEmpty()) {
+			return new TerminalExpression<Double>(0d);
+		}
 		if (this.checkValidExpression()) {
 			ArrayList<String> inputS = new ArrayList<String>();
 			String temp = "";
 			for (int i = 0; i < this.input.length(); i++) {
 				char c = this.input.charAt(i);
 				if (i == this.input.length() - 1) {
-					if(!number.contains(c) && c!='.'){
-						if(!temp.equals("")){
+					if (!number.contains(c) && c != '.') {
+						if (!temp.equals("")) {
 							inputS.add(temp);
 						}
-						temp ="";
+						temp = "";
 						inputS.add(Character.toString(c));
-					}
-					else{
+					} else {
 						temp += Character.toString(c);
 						inputS.add(temp);
 					}
@@ -113,7 +115,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					count++;
 				}
 			}
-			
+
 			for (int i = 0; i < inputS.size(); i++) {
 				String c = inputS.get(i);
 				if (c.length() == 1) {
@@ -351,16 +353,16 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 	}
 
 	private boolean checkValidExpression() throws InputException {
-		Set<Character> opFront = Set.of('.','-', '√');
-		Set<String> op2 = Set.of("x√","+-","--", "^-", "/-", "x-","-√", "√√", "%%", "%+", "%-", "%*", "%/");
+		Set<Character> opFront = Set.of('.', '-', '√');
+		Set<String> op2 = Set.of("x√", "+-", "--", "^-", "/-", "x-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
 		int countTitik = 0;
-		String temp="";
+		String temp = "";
 		char tempchar;
 		boolean catat = true;
-		int indexAngka=0;
+		int indexAngka = 0;
 		for (int i = 0; i < this.input.length(); i++) {
 			char c = this.input.charAt(i);
 			if (i == 0) {
@@ -376,46 +378,42 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 								countMinus++;
 						}
 						catat = false;
-					}
-					else if (c == '.') {
-							countTitik++;
-							if(i!=this.input.length()-1){
-								if(this.input.charAt(i+1)=='√'){
-									for(int j=indexAngka;j<this.input.length();j++){
-										tempchar = this.input.charAt(j);
-										if(!op.contains(tempchar)){
-											temp+=Character.toString(tempchar);
-										}
-										else{
-											break;
-										}
+					} else if (c == '.') {
+						countTitik++;
+						if (i != this.input.length() - 1) {
+							if (this.input.charAt(i + 1) == '√') {
+								for (int j = indexAngka; j < this.input.length(); j++) {
+									tempchar = this.input.charAt(j);
+									if (!op.contains(tempchar)) {
+										temp += Character.toString(tempchar);
+									} else {
+										break;
 									}
-									throw new OperatorInputException(Double.parseDouble(temp)+"√");
 								}
+								throw new OperatorInputException(Double.parseDouble(temp) + "√");
 							}
-					}
-					else{
+						}
+					} else {
 						catat = true;
 						indexAngka = i;
-						if(i!=this.input.length()-1){
-							if(this.input.charAt(i+1)=='√'){
-								for(int j=indexAngka;j<this.input.length();j++){
-										tempchar = this.input.charAt(j);
-										if(!op.contains(tempchar)){
-											temp+=Character.toString(tempchar);
-										}
-										else{
-											break;
-										}
+						if (i != this.input.length() - 1) {
+							if (this.input.charAt(i + 1) == '√') {
+								for (int j = indexAngka; j < this.input.length(); j++) {
+									tempchar = this.input.charAt(j);
+									if (!op.contains(tempchar)) {
+										temp += Character.toString(tempchar);
+									} else {
+										break;
 									}
-									throw new OperatorInputException(Double.parseDouble(temp)+"√");
+								}
+								throw new OperatorInputException(Double.parseDouble(temp) + "√");
 							}
 						}
 					}
 
 				}
-			} else if (i == this.input.length() - 1 && !number.contains(c) && c != '%' && c!='.') {
-				throw new OperatorInputException(Character.toString(c)+"..no right operand");
+			} else if (i == this.input.length() - 1 && !number.contains(c) && c != '%' && c != '.') {
+				throw new OperatorInputException(Character.toString(c) + "..no right operand");
 			} else {
 				if (op.contains(c)) {
 					countTitik = 0;
@@ -428,88 +426,80 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 						countMinus = 0;
 					}
 					operatorFound += Character.toString(c);
-					System.out.println(operatorFound);
+					// System.out.println(operatorFound);
 					if (operatorFound.length() == 2 && !op2.contains(operatorFound)) {
-						if(operatorFound.equals("√-")){
+						if (operatorFound.equals("√-")) {
 							//Cari d dlu
 							temp = "";
-							for(int j=i+1;j<this.input.length();j++){
+							for (int j = i + 1; j < this.input.length(); j++) {
 								tempchar = this.input.charAt(j);
-								if(!op.contains(tempchar)){
-									temp+=Character.toString(tempchar);
-								} 
-								else{
+								if (!op.contains(tempchar)) {
+									temp += Character.toString(tempchar);
+								} else {
 									break;
 								}
 							}
 							throw new NegativeRootExpressionException(-1.0 * Double.parseDouble(temp));
-						}
-						else{
+						} else {
 							throw new OperatorInputException(operatorFound);
 						}
-					}
-					else if (operatorFound.length() == 2 && op2.contains(operatorFound) && i!=this.input.length()) {
-						if(!op.contains(this.input.charAt(i+1))){
+					} else if (operatorFound.length() == 2 && op2.contains(operatorFound) && i != this.input.length()) {
+						if (!op.contains(this.input.charAt(i + 1))) {
 							operatorFound = "";
-						}
-						else{
+						} else {
 							operatorFound = operatorFound.substring(1);
 						}
-					}
-					else if(operatorFound.length()==2){
-						operatorFound ="";
+					} else if (operatorFound.length() == 2) {
+						operatorFound = "";
 					}
 					catat = false;
 				} else if (c == '.') {
-						countTitik++;
-						if(i!=this.input.length()-1){
-						if(this.input.charAt(i+1)=='√'){
-							for(int j=indexAngka;j<this.input.length();j++){
-										tempchar = this.input.charAt(j);
-										if(!op.contains(tempchar)){
-											temp+=Character.toString(tempchar);
-										}
-										else{
-											break;
-										}
-									}
-									throw new OperatorInputException(Double.parseDouble(temp)+"√");
+					countTitik++;
+					if (i != this.input.length() - 1) {
+						if (this.input.charAt(i + 1) == '√') {
+							for (int j = indexAngka; j < this.input.length(); j++) {
+								tempchar = this.input.charAt(j);
+								if (!op.contains(tempchar)) {
+									temp += Character.toString(tempchar);
+								} else {
+									break;
+								}
+							}
+							throw new OperatorInputException(Double.parseDouble(temp) + "√");
 						}
 					}
 				}
 
 				else if (number.contains(c)) {
 					operatorFound = "";
-					if(!catat){
+					if (!catat) {
 						catat = true;
 						indexAngka = i;
 					}
-					if(i!=this.input.length()-1){
-						if(this.input.charAt(i+1)=='√'){
-							for(int j=indexAngka;j<this.input.length();j++){
-										tempchar = this.input.charAt(j);
-										if(!op.contains(tempchar)){
-											temp+=Character.toString(tempchar);
-										}
-										else{
-											break;
-										}
-									}
-									throw new OperatorInputException(Double.parseDouble(temp)+"√");
+					if (i != this.input.length() - 1) {
+						if (this.input.charAt(i + 1) == '√') {
+							for (int j = indexAngka; j < this.input.length(); j++) {
+								tempchar = this.input.charAt(j);
+								if (!op.contains(tempchar)) {
+									temp += Character.toString(tempchar);
+								} else {
+									break;
+								}
+							}
+							throw new OperatorInputException(Double.parseDouble(temp) + "√");
 						}
 					}
 				}
 			}
-			if(countTitik>1){
+			if (countTitik > 1) {
 				temp = "";
-				for(int j=indexAngka;j<this.input.length();j++){
-						tempchar = this.input.charAt(j);
-						if(!op.contains(tempchar)){
-							temp+=Character.toString(tempchar);
-						}
-						else{
-							break;
-						}
+				for (int j = indexAngka; j < this.input.length(); j++) {
+					tempchar = this.input.charAt(j);
+					if (!op.contains(tempchar)) {
+						temp += Character.toString(tempchar);
+					} else {
+						break;
+					}
 				}
 				throw new CommaInputException(temp);
 			}

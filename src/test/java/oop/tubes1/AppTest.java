@@ -7,7 +7,6 @@ import java.lang.reflect.Field;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import oop.tubes1.exception.expression.DivisionByZeroExpressionException;
@@ -22,7 +21,7 @@ import oop.tubes1.utils.MathEvaluator;
 
 public class AppTest {
 
-    private static final double PRECISION = 0.001;
+    private static final double PRECISION = 0.0001;
     private CalculatorApp app;
 
     @Before
@@ -165,7 +164,24 @@ public class AppTest {
 
     @Test
     public void _23() {
-        test("5.", 5);
+        test("5.x√2=", 7.0710678118654755);
+    }
+
+    @Test
+    public void _24() {
+        test("5.=", 5d);
+    }
+
+    @Test
+    public void _25() {
+        input("2+");
+        press("MR");
+        error("=", OperatorInputException.class, "+..no right operand");
+    }
+
+    @Test
+    public void _26() {
+        test("=", 0d);
     }
 
     private void test(String exp, double res) {
@@ -182,7 +198,8 @@ public class AppTest {
         boolean errorFound = false;
         try {
             input(exp);
-            new MathEvaluator(exp.endsWith("=") ? exp.substring(0, exp.length() - 1) : exp).getExpression().solve();
+            String s = app.getCalculatorDisplay().getText();
+            new MathEvaluator(s.endsWith("=") ? s.substring(0, s.length() - 1) : s).getExpression().solve();
         } catch (InputException e) {
             assertEquals(e.getExpression(), message);
             assertTrue(errorClass.isInstance(e));
