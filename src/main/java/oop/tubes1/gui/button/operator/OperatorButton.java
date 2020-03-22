@@ -19,7 +19,6 @@ public class OperatorButton extends CalculatorButton {
     @Override
     public void onClick() {
         app.getCalculatorDisplay().append(label);
-
     }
 
 }

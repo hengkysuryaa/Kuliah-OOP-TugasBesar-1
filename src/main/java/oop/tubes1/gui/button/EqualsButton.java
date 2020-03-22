@@ -29,7 +29,7 @@ public class EqualsButton extends CalculatorButton {
         } catch (ExpressionException e) {
             app.getCalculatorDisplay().setTextError(e);
         } catch (Exception e) {
-            app.getCalculatorDisplay().setText("Invalid input!");
+            app.getCalculatorDisplay().setTextError(new Exception("Invalid input!"));
             e.printStackTrace();
         }
 

@@ -18,7 +18,7 @@ import oop.tubes1.utils.MathEvaluator;
 
 public class AppTest {
 
-    private static final double PRECISION = 0.01;
+    private static final double PRECISION = 0.001;
     private CalculatorApp app;
 
     @Before
@@ -33,12 +33,17 @@ public class AppTest {
 
     @Test
     public void _2() {
-        test("5x5", 25);
+        test("5%", 0.05);
     }
 
     @Test
     public void _3() {
         error(".5", CommaInputException.class, ".5");
+    }
+
+    @Test
+    public void _4() {
+
     }
 
     private void test(String exp, double res) {

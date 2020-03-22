@@ -7,10 +7,11 @@ import javax.swing.JTextField;
  */
 public class CalculatorDisplay {
 
-    private JTextField display;
+    private JTextField display, error;
 
-    public CalculatorDisplay(JTextField display) {
+    public CalculatorDisplay(JTextField display, JTextField error) {
         this.display = display;
+        this.error = error;
     }
 
     public void append(String str) {
@@ -32,8 +33,12 @@ public class CalculatorDisplay {
         setText("");
     }
 
+    public void clearError() {
+        error.setText("");
+    }
+
     public void setTextError(Exception e) {
-        setText(e.getMessage());
+        error.setText(e.getMessage());
     }
 
     public void setText(String text) {

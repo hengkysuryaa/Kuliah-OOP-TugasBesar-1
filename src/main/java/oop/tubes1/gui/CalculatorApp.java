@@ -102,12 +102,20 @@ public class CalculatorApp extends JFrame {
         brand.setForeground(Color.WHITE);
 
         JTextField display = new JTextField(Label.RIGHT);
-        display.setFont(new FontUIResource("Arial",Font.PLAIN,50));
+        display.setFont(new FontUIResource("Arial", Font.PLAIN, 30));
         display.setHorizontalAlignment(SwingConstants.RIGHT);
         display.setEditable(false);
-        display.setBorder(BorderFactory.createLineBorder(new Color(62,62,62),2));
-        cdisplay = new CalculatorDisplay(display);
-        display.setBounds(TOPX, TOPY, 460, 100);
+        display.setBorder(BorderFactory.createLineBorder(new Color(62, 62, 62), 2));
+        display.setBounds(TOPX, TOPY, 460, 75);
+
+        JTextField displayError = new JTextField(Label.RIGHT);
+        cdisplay = new CalculatorDisplay(display, displayError);
+        displayError.setFont(new FontUIResource("Arial", Font.PLAIN, 10));
+        displayError.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayError.setEditable(false);
+        displayError.setBorder(BorderFactory.createLineBorder(new Color(62, 62, 62), 2));
+        displayError.setBounds(TOPX, TOPY + 80, 460, 30);
+        add(displayError);
 
         DefaultListModel<Double> historyListModel = new DefaultListModel<>();
         JList<Double> historyList = new JList<>(historyListModel);
@@ -122,7 +130,6 @@ public class CalculatorApp extends JFrame {
 
         percent = new PercentButton(this);
         percent.setBounds(TOPX + 2 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON, WIDTH, HEIGHT);
-
 
         power = new PowerButton(this);
         power.setBounds(TOPX + 3 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON, WIDTH, HEIGHT);
@@ -192,6 +199,7 @@ public class CalculatorApp extends JFrame {
         equation.setBounds(TOPX + 4 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON + 5 * (HEIGHT + V_SPACE), WIDTH, HEIGHT);
 
         add(display);
+        add(displayError);
         add(delete);
         add(percent);
         add(power);

@@ -15,7 +15,10 @@ public abstract class CalculatorButton extends JButton implements Clickable {
 
     public CalculatorButton(CalculatorApp app, String label) {
         super(label);
-        this.addActionListener(e -> onClick());
+        this.addActionListener(e -> {
+            app.getCalculatorDisplay().clearError();
+            onClick();
+        });
         this.app = app;
     }
 
