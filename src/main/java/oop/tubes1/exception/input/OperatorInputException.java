@@ -1,7 +1,7 @@
 package oop.tubes1.exception.input;
 
 /**
- * InvalidNegativeException
+ * OperatorInputException
  */
 public class OperatorInputException extends InputException {
 

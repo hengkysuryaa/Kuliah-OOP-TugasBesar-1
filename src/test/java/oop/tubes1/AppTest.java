@@ -8,6 +8,9 @@ import java.lang.reflect.Field;
 import org.junit.Before;
 import org.junit.Test;
 
+import oop.tubes1.exception.expression.ExpressionException;
+import oop.tubes1.exception.input.CommaInputException;
+import oop.tubes1.exception.input.InputException;
 import oop.tubes1.exception.input.OperatorInputException;
 import oop.tubes1.gui.CalculatorApp;
 import oop.tubes1.gui.button.Clickable;
@@ -15,6 +18,7 @@ import oop.tubes1.utils.MathEvaluator;
 
 public class AppTest {
 
+    private static final double PRECISION = 0.01;
     private CalculatorApp app;
 
     @Before
@@ -24,28 +28,37 @@ public class AppTest {
 
     @Test
     public void _1() {
-        error("%", OperatorInputException.class, "The operator is invalid! Found on: %");
+        error("%", OperatorInputException.class, "%");
     }
 
     @Test
     public void _2() {
-        test("5%", 0.05);
+        test("5x5", 25);
+    }
+
+    @Test
+    public void _3() {
+        error(".5", CommaInputException.class, ".5");
     }
 
     private void test(String exp, double res) {
         calculateInput(exp);
-        assertEquals(Double.parseDouble(app.getCalculatorDisplay().getText()), res, 0.01);
+        assertEquals(Double.parseDouble(app.getCalculatorDisplay().getText()), res, PRECISION);
     }
 
-    private void error(String exp, Class<?> errorClass, String message) {
+    private void error(String exp, Class<?> errorClass, Object message) {
         try {
             calculateInput(exp);
             new MathEvaluator(exp).getExpression().solve();
+        } catch (InputException e) {
+            assertEquals(e.getExpression(), message);
+            assertTrue(errorClass.isInstance(e));
+        } catch (ExpressionException e) {
+            assertEquals(e.getNumber(), (Double) message, PRECISION);
+            assertTrue(errorClass.isInstance(e));
         } catch (Exception e) {
             assertEquals(e.getMessage(), message);
             assertTrue(errorClass.isInstance(e));
-        } finally {
-            assertEquals(app.getCalculatorDisplay().getText(), message);
         }
     }
 
@@ -55,7 +68,9 @@ public class AppTest {
         for (char c : exp.toCharArray()) {
             press(c);
         }
-        press('=');
+        if (exp.charAt(exp.length() - 1) != '=') {
+            press('=');
+        }
     }
 
     private void press(char c) {
@@ -73,20 +88,28 @@ public class AppTest {
                 switch (c) {
                     case '%':
                         fn = "percent";
+                        break;
                     case '^':
                         fn = "power";
+                        break;
                     case '√':
                         fn = "root";
+                        break;
                     case '/':
                         fn = "division";
-                    case '*':
+                        break;
+                    case 'x':
                         fn = "multiplication";
+                        break;
                     case '-':
                         fn = "substraction";
+                        break;
                     case '+':
                         fn = "addition";
+                        break;
                     case '.':
                         fn = "decimal";
+                        break;
                     case '=':
                         fn = "equation";
                 }
@@ -95,17 +118,22 @@ public class AppTest {
             switch (s) {
                 case "MS":
                     fn = "memoryStore";
+                    break;
                 case "MC":
                     fn = "memoryClear";
+                    break;
                 case "MR":
                     fn = "memoryRecall";
+                    break;
                 case "Del":
                     fn = "delete";
+                    break;
                 case "Ans":
                     fn = "ans";
             }
         }
         Clickable clickable = null;
+        System.err.println(fn);
         try {
             Field f = cl.getDeclaredField(fn);
             f.setAccessible(true);
