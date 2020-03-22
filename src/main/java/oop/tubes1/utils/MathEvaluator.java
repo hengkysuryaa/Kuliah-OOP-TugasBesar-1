@@ -60,7 +60,6 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 				}
 			}
-			System.out.println(inputS);
 			// Beresin Unary
 			ArrayList<Integer> akar = new ArrayList<Integer>();
 			ArrayList<Integer> minus = new ArrayList<Integer>();
@@ -384,6 +383,10 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					else{
 						catat = true;
 						indexAngka = i;
+						if(this.input.charAt(i+1)=='√'){
+							throw new OperatorInputException(Character.toString(c)+"√");
+						}
+						
 					}
 
 				}
@@ -433,6 +436,9 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					if(!catat){
 						catat = true;
 						indexAngka = i;
+					}
+					if(this.input.charAt(i+1)=='√'){
+						throw new OperatorInputException(Character.toString(c)+"√");
 					}
 				}
 			}
