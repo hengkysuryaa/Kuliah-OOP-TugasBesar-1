@@ -122,6 +122,40 @@ public class AppTest {
     }
 
     @Test
+    public void _17() {
+        // test("7x5xAns=", 0);
+        reset();
+        input("2+3");
+        press('=');
+        app.getCalculatorDisplay().clear();
+        input("7x");
+        press("Ans");
+        press('=');
+        checkRes(35.0);
+    }
+
+    @Test
+    public void _18() {
+        // test("7x5xAns=", 0);
+        reset();
+        input("5x5");
+        press("MS");
+        checkRes(25.0);
+    }
+
+    @Test
+    public void _19() {
+        // test("7x5xAns=", 0);
+        input("5x5");
+        press("MS");
+        app.getCalculatorDisplay().clear();
+        input("5x");
+        press("MR");
+        press("=");
+        checkRes(125.0);
+    }
+
+    @Test
     public void _20() {
         test("√√5=", 1.4953487812212205);
     }
@@ -134,6 +168,11 @@ public class AppTest {
     @Test
     public void _22() {
         error("5√2=", OperatorInputException.class, "5√");
+    }
+
+    @Test
+    public void _23() {
+        test("5.", 5);
     }
 
     private void test(String exp, double res) {
