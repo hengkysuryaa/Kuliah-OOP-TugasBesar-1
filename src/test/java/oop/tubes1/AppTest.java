@@ -134,6 +134,7 @@ public class AppTest {
         input("5x5");
         press("MS");
         checkRes(25.0);
+        assertEquals(app.getMemoryDisplay().peek(), 25.0, PRECISION);
     }
 
     @Test
@@ -145,6 +146,7 @@ public class AppTest {
         press("MR");
         press("=");
         checkRes(125.0);
+        assertTrue(app.getMemoryDisplay().isEmpty());
     }
 
     @Test

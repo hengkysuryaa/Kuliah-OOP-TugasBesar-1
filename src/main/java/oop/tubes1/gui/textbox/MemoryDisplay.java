@@ -34,6 +34,14 @@ public class MemoryDisplay<T> {
         queue.clear();
     }
 
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+    public T peek() {
+        return queue.peek();
+    }
+
     private void refreshDisplay() {
         display.clear();
         for (T t : queue) {
