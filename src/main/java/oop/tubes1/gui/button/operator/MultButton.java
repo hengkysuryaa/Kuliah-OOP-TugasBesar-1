@@ -10,7 +10,7 @@ public class MultButton extends OperatorButton {
     private static final long serialVersionUID = 6301958631221262903L;
 
     public MultButton(CalculatorApp app) {
-        super(app, 'X');
+        super(app, 'x');
     }
 
 }

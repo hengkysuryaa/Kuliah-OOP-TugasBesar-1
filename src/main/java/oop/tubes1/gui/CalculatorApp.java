@@ -2,7 +2,9 @@ package oop.tubes1.gui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Label;
 
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
@@ -99,8 +101,11 @@ public class CalculatorApp extends JFrame {
         brand.setFont(new FontUIResource("Arial", Font.BOLD + Font.ITALIC, 24));
         brand.setForeground(Color.WHITE);
 
-        JTextField display = new JTextField(20);
+        JTextField display = new JTextField(Label.RIGHT);
+        display.setFont(new FontUIResource("Arial",Font.PLAIN,50));
+        display.setHorizontalAlignment(SwingConstants.RIGHT);
         display.setEditable(false);
+        display.setBorder(BorderFactory.createLineBorder(new Color(62,62,62),2));
         cdisplay = new CalculatorDisplay(display);
         display.setBounds(TOPX, TOPY, 460, 100);
 
@@ -117,6 +122,7 @@ public class CalculatorApp extends JFrame {
 
         percent = new PercentButton(this);
         percent.setBounds(TOPX + 2 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON, WIDTH, HEIGHT);
+
 
         power = new PowerButton(this);
         power.setBounds(TOPX + 3 * (WIDTH + H_SPACE), OFFSET_Y_BUTTON, WIDTH, HEIGHT);

@@ -10,7 +10,7 @@ public class EraseButton extends CalculatorButton {
     private static final long serialVersionUID = -1688975348912982389L;
 
     public EraseButton(CalculatorApp app) {
-        super(app, "<=");
+        super(app, "Del");
     }
 
     @Override
