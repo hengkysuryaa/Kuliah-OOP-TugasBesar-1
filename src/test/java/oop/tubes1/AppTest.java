@@ -50,17 +50,17 @@ public class AppTest {
 
     @Test
     public void _5() {
-        error("√-5", NegativeRootExpressionException.class, "-5");
+        error("√-5", NegativeRootExpressionException.class, -5d);
     }
 
     @Test
     public void _6() {
-        error("2+5-7x8/0=", DivisionByZeroExpressionException.class, "/0");
+        error("2+5-7x8/0=", DivisionByZeroExpressionException.class, 56d);
     }
     
     @Test
     public void _7() {
-        error("√0/0", DivisionByZeroExpressionException.class, "/0");
+        error("√0/0", DivisionByZeroExpressionException.class, 0d);
     }
 
     @Test
@@ -70,7 +70,7 @@ public class AppTest {
 
     @Test
     public void _9() {
-        error("5+-=", InputException.class, "+-");
+        test("5+-5=", 0);
     }
 
     @Test
@@ -95,10 +95,34 @@ public class AppTest {
 
     @Test
     public void _14() {
-        error("--12", OperatorInputException.class, "--12");
+        error("--12", OperatorInputException.class, "--");
     }
 
+    @Test
+    public void _15() {
+        error("5.1.2+2", CommaInputException.class, "5.1.2");
+    }
 
+    @Test
+    public void _16() {
+        test("7x5xAns", 0);
+    }
+
+    @Test
+    public void _20() {
+        test("√√5", 1.4953487812212205);
+    }
+
+    @Test
+    public void _21() {
+        test("5x√2", 7.0710678118654755);
+    }
+   
+    @Test
+    public void _22() {
+        error("5√2", OperatorInputException.class, "5√");
+    }
+   
     private void test(String exp, double res) {
         calculateInput(exp);
         assertEquals(Double.parseDouble(app.getCalculatorDisplay().getText()), res, PRECISION);
