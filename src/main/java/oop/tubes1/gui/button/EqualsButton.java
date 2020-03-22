@@ -25,9 +25,9 @@ public class EqualsButton extends CalculatorButton {
             app.getCalculatorDisplay().setText(result);
             app.setAnsValue(Double.parseDouble(result));
         } catch (InputException e) {
-            app.getCalculatorDisplay().setText(e.getMessage());
+            app.getCalculatorDisplay().setTextError(e);
         } catch (ExpressionException e) {
-            app.getCalculatorDisplay().setText(e.getMessage());
+            app.getCalculatorDisplay().setTextError(e);
         } catch (Exception e) {
             app.getCalculatorDisplay().setText("Invalid input!");
             e.printStackTrace();

@@ -15,14 +15,7 @@ public class EraseButton extends CalculatorButton {
 
     @Override
     public void onClick() {
-
-        if (app.getCalculatorDisplay().getText().length() == 0 || app.getCalculatorDisplay().getText().length() == 1) {
-            app.getCalculatorDisplay().setText("");
-        } else {
-            app.getCalculatorDisplay().setText(app.getCalculatorDisplay().getText().substring(0,
-                    app.getCalculatorDisplay().getText().length() - 1));
-        }
-
+        app.getCalculatorDisplay().remove();
     }
 
 }
