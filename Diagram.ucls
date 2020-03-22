@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="false" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="false" associations="true" dependencies="false" nesting-relationships="false" router="FAN">  
+  <class id="1" language="java" name="oop.tubes1.expression.BinaryExpression" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/expression/BinaryExpression.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="148" x="45" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="oop.tubes1.gui.button.operator.OperatorButton" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/button/operator/OperatorButton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="115" x="1948" y="1061"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="oop.tubes1.exception.expression.ExpressionException" 
+    project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/expression/ExpressionException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="128" x="2172" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="oop.tubes1.exception.expression.DivisionByZeroExpressionException" 
+    project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/expression/DivisionByZeroExpressionException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="212" x="2294" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="oop.tubes1.expression.UnaryExpression" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/expression/UnaryExpression.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="142" x="233" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="oop.tubes1.exception.input.CommaInputException" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/input/CommaInputException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="64" width="136" x="777" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="oop.tubes1.exception.input.OperatorInputException" 
+    project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/input/OperatorInputException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="64" width="143" x="594" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="oop.tubes1.gui.textbox.MemoryDisplay" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/textbox/MemoryDisplay.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="176" width="147" x="1121" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="oop.tubes1.expression.Expression" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/expression/Expression.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="48" width="93" x="45" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="10" language="java" name="oop.tubes1.gui.CalculatorApp" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/CalculatorApp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="736" width="167" x="1759" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="oop.tubes1.gui.button.CalculatorButton" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/button/CalculatorButton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="115" x="1518" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="oop.tubes1.utils.MathEvaluator" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/utils/MathEvaluator.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="112" width="128" x="953" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="oop.tubes1.gui.button.operand.OperandButton" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/button/operand/OperandButton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="115" x="1759" y="1061"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="oop.tubes1.gui.textbox.CalculatorDisplay" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/textbox/CalculatorDisplay.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="208" width="107" x="1371" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="oop.tubes1.exception.expression.NegativeRootExpressionException" 
+    project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/expression/NegativeRootExpressionException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="203" x="2051" y="813"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="oop.tubes1.exception.input.InputException" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/exception/input/InputException.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="96" width="115" x="777" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="oop.tubes1.expression.TerminalExpression" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/expression/TerminalExpression.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="142" x="415" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="oop.tubes1.utils.ExpressionConverter" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/utils/ExpressionConverter.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="80" width="151" x="953" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="19" language="java" name="oop.tubes1.gui.button.Clickable" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/button/Clickable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="48" width="60" x="677" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="20" language="java" name="oop.tubes1.gui.button.history.HistoryButton" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/gui/button/history/HistoryButton.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="64" width="115" x="1310" y="1061"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="oop.tubes1.Main" project="Kuliah-OOP-TugasBesar-1" 
+    file="/Kuliah-OOP-TugasBesar-1/src/main/java/oop/tubes1/Main.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="64" width="40" x="597" y="37"/>    
+    <display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+      sort-features="false" accessors="true" visibility="false">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="22">    
+    <bendpoint x="1705" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="23" name="button4"/>      
+      <multiplicity id="24" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="25">    
+    <bendpoint x="1684" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="26" name="button3"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="28">    
+    <bendpoint x="1768" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="29" name="button9"/>      
+      <multiplicity id="30" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="32" name="expression"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="34">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="35" name="history"/>      
+      <multiplicity id="36" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="37">    
+    <bendpoint x="1978" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="38" name="division"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="41">    
+    <bendpoint x="1873" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="42" name="button1"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="44">    
+    <bendpoint x="1789" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="45" name="decimal"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="47">    
+    <bendpoint x="1915" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="48" name="addition"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="50">    
+    <bendpoint x="1319" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="51" name="memoryClear"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="55" name="equation"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="57">    
+    <bendpoint x="2020" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="58" name="power"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="60">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="61" name="ans"/>      
+      <multiplicity id="62" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="63">    
+    <bendpoint x="1340" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="64" name="memoryRecall"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="66">    
+    <bendpoint x="1810" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="67" name="button6"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="69">    
+    <bendpoint x="1936" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="70" name="multiplication"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="72">    
+    <bendpoint x="1999" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="73" name="percent"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="75">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="76" name="expression1"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="78">    
+    <bendpoint x="1831" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="79" name="button5"/>      
+      <multiplicity id="80" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="81">    
+    <bendpoint x="1852" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="82" name="button8"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="84">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="85">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="86" name="expression2"/>      
+      <multiplicity id="87" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="89" name="app"/>      
+      <multiplicity id="90" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="91">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="11"/>  
+  </generalization>  
+  <association id="92">    
+    <bendpoint x="1747" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="93" name="button2"/>      
+      <multiplicity id="94" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="95">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="96" name="delete"/>      
+      <multiplicity id="97" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="98">    
+    <bendpoint x="1663" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="99" name="button7"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="101">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="102" name="cdisplay"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="104">    
+    <bendpoint x="1298" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="105" name="memoryStore"/>      
+      <multiplicity id="106" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <generalization id="107">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="108">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <generalization id="109">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="18"/>  
+  </generalization>  
+  <generalization id="110">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="111">    
+    <bendpoint x="1726" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="112" name="button0"/>      
+      <multiplicity id="113" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="114">    
+    <bendpoint x="1957" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="115" name="root"/>      
+      <multiplicity id="116" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <association id="117">    
+    <bendpoint x="1894" y="813"/>    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="118" name="substraction"/>      
+      <multiplicity id="119" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="false" multiplicity="false"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="false" package="false" initial-value="false" signature="false" 
+    sort-features="false" accessors="true" visibility="false">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="false"/>
+</class-diagram>
