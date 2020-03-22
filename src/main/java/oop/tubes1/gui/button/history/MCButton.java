@@ -15,7 +15,7 @@ public class MCButton extends HistoryButton {
 
     @Override
     public void onClick() {
-        app.getHistoryQueue().clear();
+        app.getMemoryDisplay().clear();
         app.setAnsValue(0.0);
         app.getCalculatorDisplay().clear();
     }

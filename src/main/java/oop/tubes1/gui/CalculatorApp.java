@@ -72,7 +72,7 @@ public class CalculatorApp extends JFrame {
         init();
     }
 
-    public MemoryDisplay<Double> getHistoryQueue() {
+    public MemoryDisplay<Double> getMemoryDisplay() {
         return history;
     }
 
