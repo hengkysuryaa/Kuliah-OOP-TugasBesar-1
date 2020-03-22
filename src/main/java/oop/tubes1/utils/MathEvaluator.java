@@ -330,7 +330,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					count += 2;
 				}
 			}
-			System.out.println(inputS);
+			// System.out.println(inputS);
 			if (inputS.get(0).charAt(0) == '-' && inputS.size() == 1) {
 				return new NegativeExpression(
 						new TerminalExpression<Double>(Double.parseDouble(inputS.get(0).substring(1))));
@@ -349,7 +349,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	private boolean checkValidExpression() throws InputException {
 		Set<Character> opFront = Set.of('-', '√');
-		Set<String> op2 = Set.of("--", "^-", "/-", "X-", "√-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
+		Set<String> op2 = Set.of("--", "^-", "/-", "x-", "√-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;

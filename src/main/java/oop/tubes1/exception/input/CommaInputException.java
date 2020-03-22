@@ -8,7 +8,7 @@ public class CommaInputException extends InputException {
     private static final long serialVersionUID = -8496346278328736534L;
 
     public CommaInputException(String expression) {
-        super("The comma is invalid! Found on: " + expression);
+        super("The comma is invalid!", expression);
     }
 
 }

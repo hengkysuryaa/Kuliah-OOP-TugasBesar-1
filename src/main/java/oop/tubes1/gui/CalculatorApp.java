@@ -100,6 +100,7 @@ public class CalculatorApp extends JFrame {
         brand.setForeground(Color.WHITE);
 
         JTextField display = new JTextField(20);
+        display.setEditable(false);
         cdisplay = new CalculatorDisplay(display);
         display.setBounds(TOPX, TOPY, 460, 100);
 

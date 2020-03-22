@@ -6,9 +6,15 @@ package oop.tubes1.exception.expression;
 public abstract class ExpressionException extends RuntimeException {
 
     private static final long serialVersionUID = -1618634428588372563L;
+    private Double number;
 
-    public ExpressionException(String message) {
+    public ExpressionException(Double number, String message) {
         super(message);
+        this.number = number;
+    }
+
+    public Double getNumber() {
+        return number;
     }
 
 }
