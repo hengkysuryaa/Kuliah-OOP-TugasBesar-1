@@ -113,8 +113,6 @@ public class AppTest {
 
     @Test
     public void _16() {
-        // test("7x5xAns=", 0);
-        reset();
         input("7x5x");
         press("Ans");
         press('=');
@@ -123,8 +121,6 @@ public class AppTest {
 
     @Test
     public void _17() {
-        // test("7x5xAns=", 0);
-        reset();
         input("2+3");
         press('=');
         app.getCalculatorDisplay().clear();
@@ -136,8 +132,6 @@ public class AppTest {
 
     @Test
     public void _18() {
-        // test("7x5xAns=", 0);
-        reset();
         input("5x5");
         press("MS");
         checkRes(25.0);
@@ -145,7 +139,6 @@ public class AppTest {
 
     @Test
     public void _19() {
-        // test("7x5xAns=", 0);
         input("5x5");
         press("MS");
         app.getCalculatorDisplay().clear();
