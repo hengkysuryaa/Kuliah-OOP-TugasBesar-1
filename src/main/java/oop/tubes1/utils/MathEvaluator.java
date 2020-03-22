@@ -22,7 +22,7 @@ import oop.tubes1.expression.TerminalExpression;
  */
 public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 	private static final Set<Character> number = Set.of('1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
-	private static final Set<Character> op = Set.of('X', '/', '-', '+', '^', '√', '%');
+	private static final Set<Character> op = Set.of('x', '/', '-', '+', '^', '√', '%');
 
 	public MathEvaluator(String input) {
 		super(input);
@@ -184,7 +184,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 			for (int i = 0; i < inputS.size(); i++) {
 				String c = inputS.get(i);
 				if (c.length() == 1) {
-					if (c.equals("X") || c.equals("/")) {
+					if (c.equals("x") || c.equals("/")) {
 						kaliBagi.add(i);
 					}
 				}
@@ -197,7 +197,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					operan2 = inputS.get(pos - count + 1);
 					inputS.remove(pos - count + 1);
 					inputS.remove(pos - count - 1);
-					if (inputS.get(pos - count - 1).equals("X")) {
+					if (inputS.get(pos - count - 1).equals("x")) {
 						if (operan1.charAt(0) == '-' && operan2.charAt(0) == '-') {
 							x = new NegativeExpression(
 									new TerminalExpression<Double>(Double.parseDouble(operan1.substring(1))));
@@ -349,7 +349,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 
 	private boolean checkValidExpression() throws InputException {
 		Set<Character> opFront = Set.of('-', '√');
-		Set<String> op2 = Set.of("--", "^-", "/-", "X-", "√-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
+		Set<String> op2 = Set.of("--", "^-", "/-", "x-", "√-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
