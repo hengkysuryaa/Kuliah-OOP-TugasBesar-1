@@ -24,7 +24,7 @@ public class CalculatorDisplay {
     public void remove() {
         String s = getText();
         if (s.length() > 0) {
-            setText(s.substring(s.length() - 1));
+            setText(s.substring(0, s.length() - 1));
         }
     }
 
