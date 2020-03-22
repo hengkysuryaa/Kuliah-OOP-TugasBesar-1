@@ -102,29 +102,29 @@ public class CalculatorApp extends JFrame {
         brand.setForeground(Color.WHITE);
 
         JTextField display = new JTextField(Label.RIGHT);
-        display.setFont(new FontUIResource("Arial", Font.PLAIN, 30));
+        display.setFont(new FontUIResource("Arial", Font.PLAIN, 28));
         display.setHorizontalAlignment(SwingConstants.RIGHT);
         display.setEditable(false);
         display.setBorder(BorderFactory.createLineBorder(new Color(62, 62, 62), 2));
-        display.setBounds(TOPX, TOPY, 460, 75);
+        display.setBounds(TOPX, TOPY, 460, 70);
 
         JTextField displayError = new JTextField(Label.RIGHT);
         cdisplay = new CalculatorDisplay(display, displayError);
-        displayError.setFont(new FontUIResource("Arial", Font.PLAIN, 10));
-        displayError.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayError.setFont(new FontUIResource("Arial", Font.PLAIN, 13));
+        displayError.setHorizontalAlignment(SwingConstants.CENTER);
         displayError.setEditable(false);
         displayError.setBorder(BorderFactory.createLineBorder(new Color(62, 62, 62), 2));
-        displayError.setBounds(TOPX, TOPY + 80, 460, 30);
-        add(displayError);
+        displayError.setBounds(TOPX, TOPY + 75, 460, 35);
 
         DefaultListModel<Double> historyListModel = new DefaultListModel<>();
         JList<Double> historyList = new JList<>(historyListModel);
         history = new MemoryDisplay<>(historyListModel);
         historyList.setBounds(TOPX, OFFSET_Y_BUTTON, WIDTH, FRAME_HEIGHT - OFFSET_Y_BUTTON - 80);
         historyList.setFont(new FontUIResource("Arial", Font.BOLD, 24));
+        historyList.setBackground(new Color(238,238,238));
         DefaultListCellRenderer renderer = (DefaultListCellRenderer) historyList.getCellRenderer();
         renderer.setHorizontalAlignment(SwingConstants.CENTER);
-
+        
         delete = new EraseButton(this);
         delete.setBounds(TOPX + WIDTH + H_SPACE, OFFSET_Y_BUTTON, WIDTH, HEIGHT);
 
@@ -227,6 +227,7 @@ public class CalculatorApp extends JFrame {
         add(equation);
         add(historyList);
         add(brand);
+        add(displayError);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
         setLocationRelativeTo(null);
         setLayout(null);
