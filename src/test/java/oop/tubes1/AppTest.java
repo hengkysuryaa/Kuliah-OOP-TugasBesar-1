@@ -160,7 +160,7 @@ public class AppTest {
 
     @Test
     public void _22() {
-        error("5.0√2=", OperatorInputException.class, "5.0√");
+        error("5√2=", OperatorInputException.class, "5.0√");
     }
 
     @Test
