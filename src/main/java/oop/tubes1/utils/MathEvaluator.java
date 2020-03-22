@@ -37,7 +37,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 			for (int i = 0; i < this.input.length(); i++) {
 				char c = this.input.charAt(i);
 				if (i == this.input.length() - 1) {
-					if(!number.contains(c) || c!='.'){
+					if(!number.contains(c) && c!='.'){
 						if(!temp.equals("")){
 							inputS.add(temp);
 						}
@@ -60,6 +60,7 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 				}
 			}
+			System.out.println(inputS);
 			// Beresin Unary
 			ArrayList<Integer> akar = new ArrayList<Integer>();
 			ArrayList<Integer> minus = new ArrayList<Integer>();
@@ -351,8 +352,8 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 	}
 
 	private boolean checkValidExpression() throws InputException {
-		Set<Character> opFront = Set.of('-', '√');
-		Set<String> op2 = Set.of("+-","--", "^-", "/-", "x-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
+		Set<Character> opFront = Set.of('.','-', '√');
+		Set<String> op2 = Set.of("x√","+-","--", "^-", "/-", "x-", "-√", "√√", "%%", "%+", "%-", "%*", "%/");
 		String operatorFound = "";
 		// Check operator dan angka nya bener ga
 		int countMinus = 0;
