@@ -284,7 +284,6 @@ public class AppTest {
             }
         }
         Clickable clickable = null;
-        System.err.println(fn);
         try {
             Field f = cl.getDeclaredField(fn);
             f.setAccessible(true);
