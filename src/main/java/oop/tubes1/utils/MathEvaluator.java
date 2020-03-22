@@ -379,13 +379,36 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 					else if (c == '.') {
 							countTitik++;
+							if(i!=this.input.length()-1){
+								if(this.input.charAt(i+1)=='√'){
+									for(int j=indexAngka;j<this.input.length();j++){
+										tempchar = this.input.charAt(j);
+										if(!op.contains(tempchar)){
+											temp+=Character.toString(tempchar);
+										}
+										else{
+											break;
+										}
+									}
+									throw new OperatorInputException(Double.parseDouble(temp)+"√");
+								}
+							}
 					}
 					else{
 						catat = true;
 						indexAngka = i;
 						if(i!=this.input.length()-1){
 							if(this.input.charAt(i+1)=='√'){
-								throw new OperatorInputException(Character.toString(c)+"√");
+								for(int j=indexAngka;j<this.input.length();j++){
+										tempchar = this.input.charAt(j);
+										if(!op.contains(tempchar)){
+											temp+=Character.toString(tempchar);
+										}
+										else{
+											break;
+										}
+									}
+									throw new OperatorInputException(Double.parseDouble(temp)+"√");
 							}
 						}
 					}
@@ -425,12 +448,34 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 							throw new OperatorInputException(operatorFound);
 						}
 					}
-					else if (operatorFound.length() == 2) {
-						operatorFound = "";
+					else if (operatorFound.length() == 2 && op2.contains(operatorFound) && i!=this.input.length()) {
+						if(!op.contains(this.input.charAt(i+1))){
+							operatorFound = "";
+						}
+						else{
+							operatorFound = operatorFound.substring(1);
+						}
+					}
+					else if(operatorFound.length()==2){
+						operatorFound ="";
 					}
 					catat = false;
 				} else if (c == '.') {
 						countTitik++;
+						if(i!=this.input.length()-1){
+						if(this.input.charAt(i+1)=='√'){
+							for(int j=indexAngka;j<this.input.length();j++){
+										tempchar = this.input.charAt(j);
+										if(!op.contains(tempchar)){
+											temp+=Character.toString(tempchar);
+										}
+										else{
+											break;
+										}
+									}
+									throw new OperatorInputException(Double.parseDouble(temp)+"√");
+						}
+					}
 				}
 
 				else if (number.contains(c)) {
@@ -441,7 +486,16 @@ public class MathEvaluator extends ExpressionConverter<Expression<Double>> {
 					}
 					if(i!=this.input.length()-1){
 						if(this.input.charAt(i+1)=='√'){
-							throw new OperatorInputException(Character.toString(c)+"√");
+							for(int j=indexAngka;j<this.input.length();j++){
+										tempchar = this.input.charAt(j);
+										if(!op.contains(tempchar)){
+											temp+=Character.toString(tempchar);
+										}
+										else{
+											break;
+										}
+									}
+									throw new OperatorInputException(Double.parseDouble(temp)+"√");
 						}
 					}
 				}
